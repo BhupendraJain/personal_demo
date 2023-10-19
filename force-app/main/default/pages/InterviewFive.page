@@ -1,0 +1,60 @@
+<!-- Assignment Five - Purpose: Display a table of accounts. When an account name is clicked, display the name of the account as a PageMessage and highlight the row -->
+
+<apex:page controller="ShowSelecedAccountController" sidebar="false" id="PageId">
+
+<script type="text/javascript">
+      j$ = jQuery.noConflict();
+      function putErThereDude()
+      {
+         alert("in function") ;
+         var myRow = j$('[id*=PageBlockTableId]');
+         alert("myRow is " + myRow) ;
+         var Part1 = "PageId:FormId:PageBlockId:PageBlockSectionId:PageBlockTableId:";
+         var myRow = j$('[id*=PageBlockTableId]');
+         var Part3 = ":AccNameColId" ;
+         var PutIt = Part1 + myRow + Part3;
+         alert("PutIt is " + PutIt) ;
+         var myElement = document.getElementById(PutIt);
+         alert("myElement is " + myElement) ;
+         j$(myElement).focus();       
+      }
+      
+      function clickElem(elem){
+      alert("in new function");
+        alert($j(elem).find(".accId").html());
+      }
+</script>
+
+    <apex:form id="FormId">
+    <apex:pagemessages />
+        <apex:pageBlock title="Interview Five - (Select a Row to Highlight)" id="PageBlockId">
+
+                    <apex:actionFunction name="SelectAccAction" action="{!selectAcc}" rerender="FormId" immediate="true">
+                    <apex:param name="AccName" value="" assignTo="{!selAccountName}" />
+                    </apex:actionFunction>
+        
+<!--            <apex:PageBlockSection title="Try removing this PageBlockSection" id="PageBlockSectionId" columns="1" > -->
+            
+                <apex:pageBlockTable value="{!AccountsList}" var="account" id="PageBlockTableId">
+                
+                    <apex:column headerValue="Account Name" Id="AccName" style="text-decoration:underline; cursor:pointer" onclick="SelectAccAction('{!account.Name}')">
+                    <apex:outputText id="AccNameCol" value="{!account.Name}" styleClass="accId"/>
+                    </apex:column>
+
+<!--                
+                    <apex:column headerValue="Account Name" Id="AccNameId" style="text-decoration:underline; cursor:pointer" >
+                    <apex:outputField id="AccNameColId" value="{!account.Name}" styleClass="accId" />
+                    <apex:actionSupport event="onclick" reRender="PageBlockSectionId" oncomplete="putErThereDude(event.target.focus())"/>
+                    </apex:column>
+-->
+                    <apex:column value="{!account.BillingState}" />
+                    <apex:column value="{!account.Phone}" />
+                    <apex:column value="{!account.Website}" />
+                </apex:pageBlockTable>
+                
+<!--             </apex:PageBlockSection> -->
+
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

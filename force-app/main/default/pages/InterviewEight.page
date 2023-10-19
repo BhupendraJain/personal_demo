@@ -1,0 +1,47 @@
+<!-- Assignment Eight - Purpose: Crate a table of accounts that has radio buttons on the left side, when a radio button is selected display the Account name in a PageMessage. -->
+
+<apex:page controller="RadioButton" sidebar="false">
+<apex:form >
+<apex:pageblock id="Accsel" title="Selected Account">
+<apex:pagemessages />
+            <apex:pageblocktable id="allAccs" value="{!selectedAccount}" var="selAcc">                       
+                    <apex:column headervalue="Account Name">
+                        <apex:outputfield value="{!selAcc.Name}">
+                    </apex:outputfield></apex:column> 
+                    <apex:column headervalue="Billing State/Province">
+                        <apex:outputfield value="{!selAcc.BillingState}">
+                    </apex:outputfield></apex:column>  
+                    <apex:column headervalue="Phone">
+                        <apex:outputfield value="{!selAcc.Phone}">
+                    </apex:outputfield></apex:column>  
+                    <apex:column headervalue="Website">
+                        <apex:outputfield value="{!selAcc.Website}">
+                    </apex:outputfield></apex:column>  
+                </apex:pageblocktable>
+</apex:pageblock>               
+
+<apex:pageblock id="allAccs" title="Available Accounts">
+               <apex:pageblocktable id="allAccs" value="{!AllAccounts}" var="allAcc">
+                    <apex:column headervalue="Set as Primary">                    
+                       <apex:actionsupport action="{!selectAcc}" event="onclick" rerender="Accsel,allAccs">  
+                        <input type="radio" />                    
+                            <apex:param name="accId" value="{!allAcc.Id}">
+                        </apex:param></apex:actionsupport>                            
+                    </apex:column>    
+                    <apex:column headervalue="Account Name">
+                        <apex:outputfield value="{!allAcc.Name}">
+                    </apex:outputfield></apex:column> 
+                    <apex:column headervalue="Billing State/Province">
+                        <apex:outputfield value="{!allAcc.BillingState}">
+                    </apex:outputfield></apex:column>  
+                    <apex:column headervalue="Phone">
+                        <apex:outputfield value="{!allAcc.Phone}">
+                    </apex:outputfield></apex:column>  
+                    <apex:column headervalue="Website">
+                        <apex:outputfield value="{!allAcc.Website}">
+                    </apex:outputfield></apex:column>  
+                </apex:pageblocktable>
+</apex:pageblock> 
+
+</apex:form>
+</apex:page>

@@ -1,0 +1,25 @@
+<!-- Assignment Four - Purpose: Produce a page which displays Accounts and Related Contacts using only one query. -->
+
+
+<apex:page controller="ShowAccountAndContactAss4WrapperClsEx" sidebar="false">
+        <apex:form >
+        <apex:pageBlock >
+        <apex:pageMessages />
+        
+                <apex:repeat value="{!contactsMap}" var="c" >
+                
+                    <apex:pageblockSection title="{!c}" collapsible="true" columns="1">
+                        <apex:pageBlockTable value="{!contactsMap[c]}" var="cList" id="table2" title="Selected Accounts" >
+                            <apex:column value="{!cList.FirstName}" headerValue="First Name"/>
+                            <apex:column value="{!cList.LastName}" headerValue="Last Name"/>
+                            <apex:column value="{!cList.Phone}" headerValue="Phone"/>
+                            <apex:column value="{!cList.Email}" headerValue="Email"/>
+                        <apex:column value="{!cList.Account.Name}" headerValue="Account Name"/>
+                        </apex:pageBlockTable>
+                    </apex:pageblocksection>
+
+                </apex:repeat>
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,11 @@
+<apex:page showheader="false">
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>This is your First image - from URL </h1>
+  <br/>  <br/>
+      <apex:image url="https://developer.salesforce.com/files/salesforce-developer-network-logo.png" />
+        <br/>  <br/>
+  <h1>This is your Second image - from a Static Resourse</h1>
+  <br/>  <br/>
+      <apex:image value="{!URLfor($Resource.vfimagetest, 'cats/kitten1.jpg')}"/>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

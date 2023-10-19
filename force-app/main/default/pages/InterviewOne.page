@@ -1,0 +1,30 @@
+<!--Assignment One - Purpose: Output a table of accounts, your table must include the following columns: Account Name, Billing State/Province, Phone and Website.-->
+
+<apex:page standardController="Account" recordSetVar="accounts" 
+   tabstyle="account" sidebar="false">
+   <apex:form > 
+   <apex:pageBlock >
+   <apex:pageMessages />
+
+   <apex:pageBlockTable value="{!accounts}" var="a">
+
+      <apex:column headerValue="Account Name">
+         <apex:outputField value="{!a.Name}"/>
+      </apex:column>
+      
+      <apex:column headerValue="Billing State/Province">
+         <apex:outputField value="{!a.BillingState}"/>
+      </apex:column>
+      
+      <apex:column headerValue="Phone">
+         <apex:outputField value="{!a.Phone}"/>
+      </apex:column>
+
+      <apex:column headerValue="Website">
+         <apex:outputField value="{!a.Website}"/>
+      </apex:column>
+
+   </apex:pageBlockTable>
+   </apex:pageBlock>
+   </apex:form>
+</apex:page>

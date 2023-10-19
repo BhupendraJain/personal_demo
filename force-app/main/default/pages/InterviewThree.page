@@ -1,0 +1,53 @@
+<!-- Assignment Three - Purpose: Develop a grid of accounts which can be selected. Once selected and the “Show Selected Accounts” button is clicked, information from the selected accounts is displayed in the “Selected Accounts” table. -->
+
+<apex:page controller="AccountSelectClassController" sidebar="false">
+    <script type="text/javascript">
+        function selectAllCheckboxes(obj,receivedInputID){
+            var inputCheckBox = document.getElementsByTagName("input");
+            for(var i=0; i<inputCheckBox.length; i++){
+                if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){
+                    inputCheckBox[i].checked = obj.checked;
+                }
+            }
+        }
+    </script>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Show Selected Accounts" action="{!processSelected}" rerender="table2"/>
+            </apex:pageBlockButtons>
+ 
+            <apex:pageblockSection title="" collapsible="true" columns="2">
+ <apex:panelbar >
+ <apex:panelbaritem label="All Accounts">
+                <apex:pageBlockTable value="{!wrapAccountList}" var="accWrap" id="table" title="All Accounts">
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:inputCheckbox onclick="selectAllCheckboxes(this,'inputId')"/>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!accWrap.selected}" id="inputId"/>
+                    </apex:column>
+                    <apex:column value="{!accWrap.acc.Name}" />
+                    <apex:column value="{!accWrap.acc.BillingState}" />
+                    <apex:column value="{!accWrap.acc.Phone}" />
+                    <apex:column value="{!accWrap.acc.Website}" />
+                </apex:pageBlockTable>
+ </apex:panelbaritem>
+ </apex:panelbar>
+ 
+ <apex:panelbar >
+ <apex:panelbaritem label="Selected Accounts">
+                <apex:pageBlockTable value="{!selectedAccounts}" var="c" id="table2" title="Selected Accounts" >
+                    <apex:column value="{!c.Name}" headerValue="Account Name"/>
+                    <apex:column value="{!c.BillingState}" headerValue="Billing State/Province"/>
+                    <apex:column value="{!c.Phone}" headerValue="Phone"/>
+                    <apex:column value="{!c.Website}" headerValue="Website"/>
+                </apex:pageBlockTable>
+ </apex:panelbaritem>
+ </apex:panelbar>
+ 
+            </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form>
+ 
+</apex:page>

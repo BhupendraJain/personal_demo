@@ -1,0 +1,12 @@
+<apex:page controller="APTS_BJ_ContactsList_Ctrl">
+    
+    <apex:pageBlock title="Contacts List">
+        <apex:pageBlockTable value="{!Contacts}" var="con">
+            <apex:column value="{! con.FirstName }"/>
+            <apex:column value="{! con.LastName }"/>
+            <apex:column value="{! con.Title }"/>
+            <apex:column value="{! con.Email }"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+</apex:page>

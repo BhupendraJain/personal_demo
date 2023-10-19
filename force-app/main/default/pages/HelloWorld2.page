@@ -1,0 +1,19 @@
+<apex:page sidebar="false" showHeader="false"> <!-- renderAs=""> -->
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page: HelloWorld
+  <br/> <br/>
+  Hello {!$User.FirstName} {!$User.LastName}!
+  <br/> <br/>
+    <apex:pageBlock title="A Block Title">
+        <apex:pageBlockSection title="A Section Title">
+            I'm three components deep!
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="A New Section">
+            This is another section.
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+    
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

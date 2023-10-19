@@ -1,0 +1,17 @@
+<apex:page >
+    <h1>Congratulations!</h1> <br/> <h1>This is your New Page - Hello World!</h1>
+    <br/> <br/>
+    Hello {!$User.FirstName} {! $User.LastName }!
+    <br/><br/>
+    <apex:image url="https://developer.salesforce.com/files/salesforce-developer-network-logo.png"/>
+    <br/><br/>
+    {!$User.FirstName & ' - ' & $User.LastName }!
+    <br/>
+    <p> Today is {!DAY(TODAY())} {!YEAR(TODAY())} </p>
+    <p> {! MAX(1,5,9,10,56,20) } </P>
+    <p> {!sqrt(64)} </p>
+    <p>{! IF( CONTAINS('salesforce.com','force.com'),
+                 'Yep', 'Nope') }</p>
+            <p>{! IF( DAY(TODAY()) < 15,
+                 'Before the 15th', 'The 15th or after') }</p>
+</apex:page>

@@ -1,0 +1,44 @@
+<!--Assignment Two - Purpose: Develop a simple account search page.  The results must include the following columns: Account Name, Billing State/Province, Phone and Website.-->
+
+<apex:page standardController="Account" extensions="SearchAccountInterview2Controller">
+<apex:form > 
+<apex:pageBlock title="Accounts" id="pgBlock">
+<apex:pageMessages />
+
+<apex:panelBar >
+<apex:panelbaritem label="Search">
+<apex:inputText value="{!EnteredString}"/> 
+<apex:commandButton reRender="pgTable,pgBlock" value="Search" action="{!findTasks}"></apex:commandButton>
+</apex:panelbaritem>
+</apex:panelBar>
+<br/>
+<apex:panelBar >
+<apex:panelbaritem label="Result">
+<apex:pageBlockTable value="{!AccList}" var="a" id="pgTable">
+
+<apex:column headerValue="Account Name">
+<apex:outputField value="{!a.Name}"/>
+</apex:column>
+
+<apex:column headerValue="Billing State/Province">
+<apex:outputField value="{!a.BillingState}"/>
+</apex:column>
+
+<apex:column headerValue="Phone">
+<apex:outputField value="{!a.Phone}"/>
+</apex:column>
+
+<apex:column headerValue="Website">
+<apex:outputField value="{!a.Website}"/>
+</apex:column>
+
+</apex:pageBlockTable>
+
+</apex:panelbaritem>
+</apex:panelBar>
+
+
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>

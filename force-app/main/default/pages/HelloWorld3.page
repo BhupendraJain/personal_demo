@@ -1,0 +1,5 @@
+<apex:page >
+  <h1>This is My New Visualforce Page</h1>
+  <br/>
+  <h2>This is My New Visualforce Page</h2>
+</apex:page>

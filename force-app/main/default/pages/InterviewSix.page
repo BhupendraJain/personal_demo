@@ -1,0 +1,31 @@
+<!-- Assignment Six - Purpose: Using Google’s Geocoding XML API and Salesforce XML parsing method enter a city state and parse the Lat/Long
+#NOTE: ASSIGNMENT SIX AND SEVEN ARE LOGICALLY SAME, WITH A DIFFERENCE THAT, IN ASSIGNMENT SIX, WE HAVE TO USE 'XML' PARSING AND IN ASSIGNMENT SEVEN, WE NEED TO USE 'JSON' PARSING TO PARSE HTTP RESPONSE...
+-->
+
+<apex:page controller="PopulateLongitudeLattitudeAssSix">
+  <apex:form >
+  <apex:pagemessages />
+  <apex:pageblock title="Interview Six">
+      <apex:pageblocksection id="InputSectionId" title="Input" collapsible="false">
+          <apex:outputtext id="CityLabelId" value="City"/>
+          <apex:inputtext id="CityTextId" value="{!CityTextId}"/>
+          <apex:outputtext id="StateLabelId" value="State"/>
+          <apex:inputtext id="StateTextId" value="{!StateTextId}"/>
+          <br/>
+          <apex:commandButton value="Submit" action="{!PopulateLatituteLongitude}"/>
+      </apex:pageblocksection>
+      
+      <apex:pageblocksection id="OutputSectionId" title="Output" collapsible="false">
+          <apex:outputtext id="CalledURLId" value="Called URL"/>
+          <apex:inputtextarea id="CalledURL" value="{!CalledURL}" rows="2" cols="100" />
+          <apex:outputtext id="HttpResponseLabelId" value="Http Response"/>
+          <apex:inputtextarea id="HttpResponse" value="{!HttpResponse}" rows="20" cols="100" />
+          <apex:outputtext id="LatitudeLabelId" value="Latitude"/>
+          <apex:inputtext id="LatitudeText" value="{!LatitudeText}"/>
+          <apex:outputtext id="LongitudeLabelId" value="Longitude"/>
+          <apex:inputtext id="LongitudeText" value="{!LongitudeText}"/>
+      </apex:pageblocksection>      
+      
+  </apex:pageblock>
+  </apex:form>
+</apex:page>

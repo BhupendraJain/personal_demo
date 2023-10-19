@@ -1,0 +1,3 @@
+<apex:page >
+  <apex:image value="/servlet/servlet.ImageServer?id=015280000020wld&oid=00D28000001JJOj" width="120px" height="70px" />
+</apex:page>
